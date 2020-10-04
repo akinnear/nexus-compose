@@ -1,0 +1,19 @@
+# If the version of any image changes update service/src/integrationTest/resources/bootstrap.yml
+version: '3.8'
+
+volumes:
+  nexus-data:
+    name: nexus-data
+    external: true
+
+services:
+  nexus:
+    image: sonatype/nexus3:3.28.0
+    container_name: nexus
+    volumes:
+      - nexus-data:/nexus-data
+    ports:
+      - 8081:8081
+      - 8082:8082
+      - 8083:8083
+      - 8084:8084
